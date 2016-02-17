@@ -28,20 +28,25 @@ function recursiveFetch (skip, result = []) {
       if (arr.length < 50) return result
       return recursiveFetch(skip + 50, result)
     })
+    .catch((err) => { throw err })
 }
 
-recursiveFetch(0).then((result) => {
-  result = result.map((record) => {
-    return {
-      _id: record.TravelTimeID.toString(),
-      Name: record.Name,
-      Direction: record.Direction,
-      FarEndPoint: record.FarEndPoint,
-      StartPoint: record.StartPoint,
-      EndPoint: record.EndPoint,
-      EstimatedTime: record.EstimatedTime,
-      CreateDate: new Date(+record.CreateDate.slice(6, 19)) // '/Date(1455697556610)/'
-    }
+recursiveFetch(0)
+  .then((result) => {
+    result = result.map((record) => {
+      return {
+        _id: record.TravelTimeID.toString(),
+        Name: record.Name,
+        Direction: record.Direction,
+        FarEndPoint: record.FarEndPoint,
+        StartPoint: record.StartPoint,
+        EndPoint: record.EndPoint,
+        EstimatedTime: record.EstimatedTime,
+        CreateDate: +record.CreateDate.slice(6, 19) // '/Date(1455697556610)/'
+      }
+    })
+    db.bulkDocs(result)
+      .then(console.log)
+      .catch((err) => { throw err })
   })
-  db.bulkDocs(result).then(console.log)
-})
+  .catch(console.error)

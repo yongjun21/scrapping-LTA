@@ -1,0 +1,9 @@
+runtime "node"
+stack "node-4.1"
+exec "dist/index.js"
+dir "node_modules/"
+file "package.json"
+set_env "CLOUDANT_KEY", ENV["CLOUDANT_KEY"]
+set_env "CLOUDANT_PASSWORD", ENV["CLOUDANT_PASSWORD"]
+set_env "DATAMALL_ACCOUNT_KEY", ENV["DATAMALL_ACCOUNT_KEY"]
+set_env "DATAMALL_UNIQUE_USER_ID", ENV["DATAMALL_UNIQUE_USER_ID"]
