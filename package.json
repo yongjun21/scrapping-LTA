@@ -1,0 +1,24 @@
+{
+  "name": "scrapping-lta",
+  "version": "1.0.0",
+  "description": "Scrapping real-time data from LTA's DataMall",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "test": "exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yongjun21/scrapping-LTA.git"
+  },
+  "author": "Yong Jun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yongjun21/scrapping-LTA/issues"
+  },
+  "homepage": "https://github.com/yongjun21/scrapping-LTA#readme",
+  "dependencies": {
+    "node-fetch": "^1.3.3",
+    "pouchdb": "^5.2.1"
+  }
+}
