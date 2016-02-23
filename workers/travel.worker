@@ -1,0 +1,10 @@
+runtime "node"
+stack "node-4.1"
+exec "../dist/travel.js"
+file "../dist/helpers.js"
+dir "../node_modules/"
+file "../package.json"
+set_env "CLOUDANT_TRAVEL_KEY", ENV["CLOUDANT_TRAVEL_KEY"]
+set_env "CLOUDANT_TRAVEL_PASSWORD", ENV["CLOUDANT_TRAVEL_PASSWORD"]
+set_env "DATAMALL_ACCOUNT_KEY", ENV["DATAMALL_ACCOUNT_KEY"]
+set_env "DATAMALL_UNIQUE_USER_ID", ENV["DATAMALL_UNIQUE_USER_ID"]
